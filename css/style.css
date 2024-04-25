@@ -1,0 +1,276 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+:root{
+    --verde:rgb(70, 196, 154);
+    --gris:rgb(136,136,136)
+}
+.verde_txt{
+    color: var(--verde);
+}
+.gris_txt{
+    color: var(--gris);
+}
+body {
+    height: 100vh;
+    width: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.f20{
+    font-size:20pt !important;
+}
+.f16{
+    font-size:16pt !important;
+}
+.f10{
+    font-size:10pt !important;
+}
+header {
+    height: 60%;
+    width: 100%;
+    background-image: url(../img/oko-restaurant.jpg);
+    background-position: center;
+    background-size: cover;
+
+    .portada {
+        height: 70%;
+        width: 100%;
+        background: linear-gradient(0deg, rgba(252, 250, 250, 0.61), rgba(0, 0, 0, 0.096));
+        position: relative;
+    }
+
+    nav {
+        height: 30%;
+        width: 100%;
+        background-color: rgb(100, 228, 185);
+    }
+}
+
+.saludo {
+    position: absolute;
+    left: 5%;
+    bottom: 20%;
+
+}
+
+.saludo:hover ::before {
+    content: 'ola manola ';
+    height: 100px;
+}
+
+.saludo:hover ::after {
+    content: ' me pican lo coco';
+    height: 100px;
+}
+
+.buscador {
+    position: absolute;
+    display: flex;
+    bottom: -20px;
+    left: 5%;
+    height: 40px;
+    margin: auto;
+    overflow: hidden;
+    box-shadow: 0 10px 20px -10px rgb(0, 0, 0, 0.418);
+
+    .icono {
+
+        width: 40px;
+        background-color: rgb(161, 123, 17);
+        color: rgb(65, 61, 61);
+        display: grid;
+        place-items: center;
+    }
+
+}
+
+input[type="search"] {
+
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: calc(100% - 80px);
+}
+
+input[type="submit"]:focus {
+    width: 40px;
+    border: none;
+    outline: none;
+    background-color: rgb(233, 233, 232);
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    transition: 3s ease-in-out;
+    transform: rotate(36000deg);
+
+}
+
+nav.categorias {
+    height: 30%;
+    width: 100% auto;
+    background-color: rgb(189, 157, 109);
+    padding: 40px;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    overflow-x: scroll;
+
+    a.btn-cat {
+        height: 100px;
+        flex: 0 0 85px;
+        color: rgba(255, 0, 0, 0.637);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.f30 {
+    font-size: 30pt !important;
+}
+
+a {
+    color: rgb(46, 45, 45);
+}
+
+span {
+    color: rgb(255, 255, 247);
+}
+
+a:hover {
+    color: rgb(88, 85, 85);
+}
+
+a:active {
+    text-shadow: 0 0 10px white;
+}
+
+/*link=instancia inicial de un link
+active= cuando hago click
+visited enlace visto
+hover= cuando paso el mouse sobre el enlace o elemento */
+main {
+    background-color: rgb(255, 255, 255);
+    height: 100px auto;
+    width: 100%;
+    padding: 20px;
+
+    .restaurantes {
+        width: 100%;
+        height: 100px auto;
+       
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+
+        .resto {
+
+            width: 100%;
+            background-color: var(--verde);
+            flex: 0 0 160px;
+            align-content: center;
+            display: flex;
+            position: relative;
+             box-shadow: 0 10px 20px 5px rgb(0, 0, 0, 0.418);
+            .puntuacion{
+                position: absolute;
+                right: 0;
+                top: 0;
+                background-color: var(--verde);
+                padding: 5px;
+                border-radius: 10px 0 10px 0;
+                font-weight: bolder;
+                color: rgb(255, 255, 255);
+                box-shadow: 0 0 8px -3px black;
+            }  
+
+        }
+        .distancia{
+            position: absolute;
+            top: 5px;
+            left: 30%;
+            font-weight: bolder;
+            color: white;
+            z-index: 400;
+        }
+    }
+}
+
+.imagen_resto {
+    position: absolute;
+    width: auto;
+    height: 70%;
+    background-color: black;
+    float: left;
+    z-index: 0;
+    
+
+}
+
+.desc_resto {
+    position: absolute;
+    float: right;
+    right: 0;
+    
+    width: 60%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    border-bottom-left-radius: 20px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 15px;
+
+    .precio_val{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .valoraciones{
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+    }
+   
+
+}
+
+/*
+flex-grow= es la capacidad del elemento hijo de agrandarse si es necesario 
+flex-shrink= es la capacidad del elemento hijo de achicarse si es necesario
+flex-basis= establece un ancho minimo al elemento hijo*/
+@media screen and (orientation=landscape){
+    main{
+        .restaurantes{ 
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+        .resto{
+            height: 160px;
+            flex: 0 0 calc(50% - 10px) !important;
+        }
+    }
+}
+::-webkit-scrollbar{
+    height: 5px;
+    width: 3px;
+}
+::-webkit-scrollbar-track{
+    background: #ffffffff;
+
+}
+::-webkit-scrollbar-thumb{
+    background: var(--verde);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: var(--gris);
+}
+
